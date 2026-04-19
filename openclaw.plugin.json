@@ -1,0 +1,39 @@
+{
+  "id": "file-guard",
+  "name": "File Guard",
+  "description": "Per-user file ownership and access control middleware. Protects skills, AGENTS.md, MEMORY.md, and other files from edits by unauthorized chat users.",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "watchedPaths": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Glob patterns defining the scope of files this plugin can guard. Files outside these patterns are unprotected. Example: ['~/.openclaw/**/*.md', '~/.openclaw/workspace/skills/**']."
+      },
+      "alwaysProtected": {
+        "type": "array",
+        "description": "Pre-configured protections set by admin. Each entry locks a path under a specific owner without requiring a /protect command.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Absolute path or glob pattern."
+            },
+            "ownerUserId": {
+              "type": "string",
+              "description": "Channel-scoped user ID, e.g. 'slack:U_ADMIN'."
+            },
+            "grantees": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Optional list of additional channel-scoped user IDs allowed to edit."
+            }
+          },
+          "required": ["path", "ownerUserId"]
+        }
+      }
+    }
+  }
+}
