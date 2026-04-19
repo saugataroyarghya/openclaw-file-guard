@@ -1,8 +1,15 @@
 # openclaw-file-guard
 
-Per-user file ownership and access control middleware for [OpenClaw](https://docs.openclaw.ai).
+> **Per-user file ownership and ACL for [OpenClaw](https://docs.openclaw.ai).** Protects skills, AGENTS.md, MEMORY.md, and configs from edits by chat users who don't have permission.
 
-Companion to [openclaw-credential-vault](https://github.com/saugataroyarghya/openclaw-tools-middleware) — same middleware pattern, different domain.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-plugin-orange.svg)](https://docs.openclaw.ai)
+[![Discord](https://img.shields.io/badge/OpenClaw-Discord-5865F2.svg)](https://discord.gg/clawd)
+
+Multi-user OpenClaw bot? Anyone in the chat can ask the AI to edit any file the bot can reach — your skills, your memory, your config. This plugin adds an ownership layer: claim files with `/protect`, grant access with `/grant @user`, block everyone else. Channel-scoped identity prevents cross-platform impersonation. Pure middleware, no tools registered.
+
+Companion to [openclaw-credential-vault](https://github.com/saugataroyarghya/openclaw-credential-vault) — same middleware pattern, different domain.
 
 ## What it does
 
